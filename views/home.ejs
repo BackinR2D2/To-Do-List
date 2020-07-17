@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+    <style>
+        h1 {
+            font-size: 40px;
+            text-align: center;
+            text-decoration: underline;
+            height: 20vh;
+        }
+
+        .section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input {
+            width: 50%;
+            font-size: 20px;
+            padding: 10px;
+        }
+
+        button {
+            height: 4vh;
+            font-size: 3.2vh;
+        }
+
+        .todos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+        }
+
+        body {
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>TO DO APP</h1>
+        </div>
+        <div class="section">
+            <form action="/" method="POST">
+                <input type="text" name="todo" placeholder="Enter your todos">
+                <button type="submit">Submit todo!</button>
+            </form>
+        </div>
+        <div class="todos">
+            <ul>
+                <% list.map(l => { %>
+                <li><%= l %></li>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
