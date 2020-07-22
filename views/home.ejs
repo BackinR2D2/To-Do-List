@@ -4,43 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <title>To Do App</title>
-    <style>
-        h1 {
-            font-size: 40px;
-            text-align: center;
-            text-decoration: underline;
-            height: 20vh;
-        }
 
-        .section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        input {
-            width: 50%;
-            font-size: 20px;
-            padding: 10px;
-        }
-
-        button {
-            height: 4vh;
-            font-size: 3.2vh;
-        }
-
-        .todos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2em;
-        }
-
-        body {
-            background-color: gray;
-        }
-    </style>
 </head>
 
 <body>
@@ -48,12 +15,15 @@
         <div class="header">
             <h1>TO DO APP</h1>
         </div>
-        <div class="section">
-            <form action="/" method="POST">
-                <input type="text" name="todo" placeholder="Enter your todos">
-                <button type="submit">Submit todo!</button>
-            </form>
-        </div>
+        <form action="/" method="POST">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter your todos" aria-label="Enter your todos"
+                    aria-describedby="button-addon2" name="todo">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-light" id="button-addon2">Submit todo!</button>
+                </div>
+            </div>
+        </form>
         <div class="todos">
             <ul>
                 <% list.map(l => { %>
