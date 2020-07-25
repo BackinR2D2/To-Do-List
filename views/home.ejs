@@ -24,14 +24,37 @@
                 </div>
             </div>
         </form>
+        <form action="/delete" method="POST">
+            <button class="btn btn-outline-light" type="submit">delete todos</button>
+        </form>
         <div class="todos">
             <ul>
+                <% if(list.length > 0) { %>
                 <% list.map(l => { %>
                 <li><%= l %></li>
                 <% }) %>
+                <% } %>
             </ul>
         </div>
     </div>
+    <script>
+        const lis = document.querySelectorAll('li')
+        lis.forEach(li => {
+            li.addEventListener('click', function () {
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    },
+                    body: JSON.stringify({
+                        singleTodo: li.textContent
+                    }),
+                }
+                fetch('/single-todo', options)
+                this.style.display = 'none';
+            })
+        })
+    </script>
 </body>
 
 </html>

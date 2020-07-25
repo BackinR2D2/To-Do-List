@@ -9,14 +9,26 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.set('views', path.join(__dirname, 'views'))
 
-const list = [];
+let list = [];
 
 app.get('/', (req, res) => {
     res.render('home', { list: list })
 })
 
+app.post('/single-todo', (req, res) => {
+    const index = list.indexOf(req.body.singleTodo)
+    if (index > -1)
+        list.splice(index, 1)
+})
+
 app.post('/', (req, res) => {
     list.push(req.body.todo)
+    if (req.body.todo === '') list.pop()
+    res.render('home', { list: list })
+})
+
+app.post('/delete', (req, res) => {
+    list = []
     res.redirect('/')
 })
 
